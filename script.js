@@ -47,7 +47,7 @@ function setgrid(){
             newDiv.style.height = `calc(800px / ${size_grid} - 2px)`;
             newDiv.style.backgroundColor = "white";
             newDiv.style.border = "1px solid blue";
-            newDiv.addEventListener('mouseover',test)//*drawing only when mouse moving + leftbutton clicked)*/
+            newDiv.addEventListener('mouseover',Click_left_toChange)//*drawing only when mouse moving + leftbutton clicked)*/
 
 
             container.appendChild(newDiv);
@@ -55,7 +55,7 @@ function setgrid(){
     
 }}
  
-function test(e) {
+function Click_left_toChange(e) {
     
     container.addEventListener('mousedown', () => { //* test if the left mouse button is clicked in the grid)/*
         isDrawing = true;

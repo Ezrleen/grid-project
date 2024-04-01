@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 const container1 = document.querySelector(".container1");
 const button = document.createElement("button");
+const reset = document.createElement("button");
 const input = document.createElement("input");
 const p = document.createElement("p");
 p.innerText="50"
@@ -8,24 +9,51 @@ input.type="range"
 input.min = "10";
 input.max = "100";
 button.innerText = "Change value";
+reset.innerText = "Reset";
+reset.style.width="90px"
+
 button.addEventListener("click",setgrid)
 input.addEventListener('input',()=>{
     p.innerText = input.value;
 
 })
+reset.classList.add("AllButtons");
+button.classList.add("AllButtons");
 
 container1.appendChild(button)
 container1.appendChild(input)
 container1.appendChild(p)
+container1.appendChild(reset)
 
 container1.style.display = "flex";
 container1.style.justifyContent = "center";
 container1.style.marginBottom = "15px";
+container1.style.gap="15px"
+
+const AllButtons = document.querySelectorAll(".AllButtons");
+AllButtons.forEach((btn) => {
+    
+    btn.style.fontFamily="Raleway"
+    btn.style.border="Edu NSW ACT Foundation"
+    
+
+});
+reset.addEventListener('click',setgrid)
+    
+    
 
 
+AllButtons.forEach((btn) => {
+  btn.addEventListener("mouseover", () => {
+    btn.style.transform = "scale(1.1, 1.1)";
 
+    
+  });
 
-
+  btn.addEventListener("mouseout", () => {
+    btn.style.transform = "scale(1, 1)";
+  });
+});
 
 container.style.border = "1px yellow solid";
 container.style.display = "flex";
@@ -69,3 +97,4 @@ function Click_left_toChange(e) {
 
     }
 }
+

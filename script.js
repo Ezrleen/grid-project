@@ -1,17 +1,21 @@
 const container = document.querySelector(".container");
 const container1 = document.querySelector(".container1");
 const button = document.createElement("button");
-
+const color = document.createElement("input");
 const reset = document.createElement("button");
+const Confirm = document.createElement("button");
 const input = document.createElement("input");
 const p = document.createElement("p");
+let val = ""; 
 p.innerText="50"
 input.type="range"
 input.min = "10";
 input.max = "100";
 button.innerText = "Change value";
+Confirm.innerText = "Change color";
 reset.innerText = "Reset";
 reset.style.width="90px"
+color.type="color"
 
 button.addEventListener("click",setgrid)
 input.addEventListener('input',()=>{
@@ -20,17 +24,29 @@ input.addEventListener('input',()=>{
 })
 reset.classList.add("AllButtons");
 button.classList.add("AllButtons");
+Confirm.classList.add("AllButtons");
+color.setAttribute("id", "color");
+color.style.width="70px"
+color.style.height="70px"
+
+
+
 
 container1.appendChild(button)
 container1.appendChild(input)
 container1.appendChild(p)
 container1.appendChild(reset)
-
+container1.appendChild(color)
+container1.appendChild(Confirm)
 container1.style.display = "flex";
 container1.style.justifyContent = "center";
 container1.style.marginBottom = "15px";
 container1.style.gap="15px"
+Confirm.addEventListener('click',()=>{
+    val = document.getElementById("color").value;
+    console.log(val)
 
+})
 const AllButtons = document.querySelectorAll(".AllButtons");
 AllButtons.forEach((btn) => {
     
@@ -39,7 +55,10 @@ AllButtons.forEach((btn) => {
     
 
 });
-reset.addEventListener('click',setgrid)
+reset.addEventListener('click',()=>{
+    container.innerHTML = "";
+    
+})
     
     
 
@@ -68,6 +87,7 @@ container.style.marginRight = "auto";
  let isDrawing = false;
 function setgrid(){
     const size_grid = input.value;
+
     container.innerHTML = "";
     for (let i = 0; i < size_grid; i++) {
         for (let j = 0; j < size_grid; j++) {
@@ -94,7 +114,7 @@ function Click_left_toChange(e) {
     });
     if (isDrawing) {
         console.log(e.target)
-        e.target.style.backgroundColor = "red"; //* if clicked the e.target which is the div is changing color)*/
+        e.target.style.backgroundColor = `${val}`; //* if clicked the e.target which is the div is changing color)*/
 
     }
 }

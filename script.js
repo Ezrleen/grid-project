@@ -1,23 +1,17 @@
 const container = document.querySelector(".container");
 const container1 = document.querySelector(".container1");
-const color = document.createElement("input");
 const button = document.createElement("button");
 
 const reset = document.createElement("button");
 const input = document.createElement("input");
 const p = document.createElement("p");
-let ch = ""
 p.innerText="50"
 input.type="range"
 input.min = "10";
 input.max = "100";
 button.innerText = "Change value";
 reset.innerText = "Reset";
-color.type="color"
-color.placeholder = "Change Color"
 reset.style.width="90px"
-
-
 
 button.addEventListener("click",setgrid)
 input.addEventListener('input',()=>{
@@ -27,18 +21,15 @@ input.addEventListener('input',()=>{
 reset.classList.add("AllButtons");
 button.classList.add("AllButtons");
 
-
 container1.appendChild(button)
 container1.appendChild(input)
 container1.appendChild(p)
 container1.appendChild(reset)
-container1.appendChild(color)
-
 
 container1.style.display = "flex";
 container1.style.justifyContent = "center";
 container1.style.marginBottom = "15px";
-container1.style.gap="30px"
+container1.style.gap="15px"
 
 const AllButtons = document.querySelectorAll(".AllButtons");
 AllButtons.forEach((btn) => {
@@ -103,7 +94,7 @@ function Click_left_toChange(e) {
     });
     if (isDrawing) {
         console.log(e.target)
-        e.target.style.backgroundColor = ch; //* if clicked the e.target which is the div is changing color)*/
+        e.target.style.backgroundColor = "red"; //* if clicked the e.target which is the div is changing color)*/
 
     }
 }

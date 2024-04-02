@@ -1,7 +1,8 @@
 const container = document.querySelector(".container");
 const container1 = document.querySelector(".container1");
-const color = document.createElement("button");
+const color = document.createElement("input");
 const button = document.createElement("button");
+
 const reset = document.createElement("button");
 const input = document.createElement("input");
 const p = document.createElement("p");
@@ -12,7 +13,8 @@ input.min = "10";
 input.max = "100";
 button.innerText = "Change value";
 reset.innerText = "Reset";
-color.innerText = "Change Color"
+color.type="color"
+color.placeholder = "Change Color"
 reset.style.width="90px"
 
 
@@ -24,7 +26,7 @@ input.addEventListener('input',()=>{
 })
 reset.classList.add("AllButtons");
 button.classList.add("AllButtons");
-color.classList.add("AllButtons");
+
 
 container1.appendChild(button)
 container1.appendChild(input)
@@ -37,9 +39,7 @@ container1.style.display = "flex";
 container1.style.justifyContent = "center";
 container1.style.marginBottom = "15px";
 container1.style.gap="30px"
-color.addEventListener("click", () => {
-    ch = prompt("pick a color");
-});
+
 const AllButtons = document.querySelectorAll(".AllButtons");
 AllButtons.forEach((btn) => {
     
